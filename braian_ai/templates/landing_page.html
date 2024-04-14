@@ -1,0 +1,82 @@
+{% extends "users/base.html" %}
+{% block title %}landing{% endblock title %}
+
+{% block content %}
+    <style>
+
+        .features img {
+            margin-bottom: 20px;
+        }
+        .testimonial {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #130202;
+            border-radius: 5px;
+            background: #2f47d5;
+        }
+
+        .cta h2 {
+            margin-bottom: 20px;
+        }
+
+    </style>
+     <section class="hero-section text-center">
+        <div class="container">
+            <h1 class="display-4">Boost Your Team's Productivity with BraianAI</h1>
+            <p class="lead">Innovative AI solutions to streamline your business operations.</p>
+            <a class="btn btn-light" href="#features">Discover How</a>
+        </div>
+    </section>
+
+    <section id="features" class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 features">
+                    <img src="path_to_icon" alt="Automated Workflows" class="img-fluid">
+                    <h3>Automated Workflows</h3>
+                    <p>Automate repetitive tasks and processes to focus on what truly matters.</p>
+                </div>
+                <div class="col-md-4 features">
+                    <img src="path_to_icon" alt="Data Insights" class="img-fluid">
+                    <h3>Data Insights</h3>
+                    <p>Gain actionable insights from your data to make informed decisions.</p>
+                </div>
+                <div class="col-md-4 features">
+                    <img src="path_to_icon" alt="Seamless Integration" class="img-fluid">
+                    <h3>Seamless Integration</h3>
+                    <p>Easily integrate with your existing tools and systems without hassle.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials bg-dark py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">What Our Users Say</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="testimonial">
+                        <p>"BraianAI revolutionized our project management, leading to a 30% increase in delivery efficiency."</p>
+                        <cite>– Jane Doe, Project Manager</cite>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="testimonial">
+                        <p>"The insights provided by BraianAI have been pivotal in refining our marketing strategies."</p>
+                        <cite>– John Smith, Marketing Director</cite>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta py-5">
+        <div class="container text-center">
+            <h2>Ready to Transform Your Business with AI?</h2>
+            <p>Join the future of business management today and experience unparalleled productivity gains.</p>
+            <a class="btn btn-light" href="/register">Get Started with BraianAI</a>
+        </div>
+    </section>
+
+
+{% endblock content %}

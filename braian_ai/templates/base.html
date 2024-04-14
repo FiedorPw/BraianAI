@@ -1,0 +1,115 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+{#    favicon#}
+        <link rel="icon" href="{% static 'logo.png' %}" type="image/x-icon">
+     <!--Font awesome icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BraianAI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+
+    <title>{% block title %} {% endblock %} </title>
+</head>
+<body class="d-flex flex-column h-100" style="font-family: Poppins">
+  <div class="container p-3 my-3">
+    <div class="row">
+      <div class="col-md-12">
+
+        <nav class="navbar navbar-expand-lg bg-body-tertiary justify-content-between " {# style="background-color: #f0f5f5"#}>
+            <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'braian1' %}">
+            <img src="{% static 'logo.png' %}" width="50" height="50" alt="BraianAI Logo" />
+            <strong>BraianAI</strong>
+        </a>
+
+{#                <a href="/" class="navbar-brand">Home</a>#}
+{#            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">#}
+{#                <span class="navbar-toggler-icon"></span>#}
+{#            </button>#}
+             <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+{#                UNCOMENT ZARAZ NAV LINK#}
+{#                <li class="nav-item">#}
+{#                    <a class="nav-link" href="{% url 'about' %}">About</a>#}
+{#                </li>#}
+            </ul>
+
+
+
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ml-auto">
+                  {% if user.is_authenticated %}
+                    {#  MF: old ones without buttons just text #}
+
+{#                    <a href="{% url 'users-profile' %}" class="nav-item nav-link">Profile</a>#}
+{#                    <a href="{% url 'logout' %}" class="nav-item nav-link">Logout</a>#}
+{#                      <a href="{% url 'users-profile' %}" class="nav-item nav-link">Profile</a>#}
+                        <a class="btn btn-outline-primary" href="{% url 'users-profile' %}">Profile</a>
+                       <a class="btn btn-outline-primary" href="{% url 'logout' %}">Logout</a>
+                  {% else %}
+{#                    <a href="{% url 'login' %}" class="nav-item nav-link">Sign in</a>#}
+                        <a class="btn btn-primary" href="{% url 'login' %}">Sign in</a>
+                  {% endif %}
+
+                </div>
+            </div>
+
+
+
+        </nav>
+        <!--Any flash messages pop up in any page because this is the base template-->
+        {% if messages %}
+          <div class="alert alert-dismissible" role="alert">
+            {% for message in messages %}
+              <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+            {% endfor %}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        {% endif %}
+        {% block content %}
+
+
+        {% endblock %}
+
+        <footer class="mt-auto text-white-50 text-center">
+        <div class="inner">
+            <p>&copy; BraianAI All rights reserved</p>
+        </div>
+    </footer>
+
+      </div>
+    </div>
+  </div>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <!-- A plugin for password show/hide  -->
+    <script src="https://unpkg.com/bootstrap-show-password@1.2.1/dist/bootstrap-show-password.min.js"></script>
+
+</body>
+</html>
